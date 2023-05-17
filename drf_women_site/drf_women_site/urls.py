@@ -18,14 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 from women import views
-from women.routers import MyCustomRouter
-
-
-router = MyCustomRouter()
-router.register(r'women', views.WomenViewSet, basename='women')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include(router.urls)),
+    path('api/v1/women/', views.WomenAPIList.as_view()),
+    path('api/v1/women/<int:pk>/', views.WomenAPIUpdate.as_view()),
+    path('api/v1/womendelete/<int:pk>/', views.WomenAPIDestroy.as_view()),
 ]
