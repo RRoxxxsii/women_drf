@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from women.views import WomenAPIList
+from women import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/womenlist/', WomenAPIList.as_view()),
-    path('api/v1/womenlist/<int:pk>/', WomenAPIList.as_view()),
+    path('api/v1/womenlist/', views.WomenAPIList.as_view()),
+    path('api/v1/womenlist/<int:pk>/', views.WomenAPIUpdate.as_view()),
+    path('api/v1/womendetail/<int:pk>/', views.WomenAPIDetailView.as_view()),
 ]

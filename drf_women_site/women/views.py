@@ -9,7 +9,11 @@ class WomenAPIList(generics.ListCreateAPIView):
     serializer_class = WomenSerializer
 
 
+class WomenAPIUpdate(generics.UpdateAPIView):
+    queryset = Women.objects.all()
+    serializer_class = WomenSerializer
 
 
-
-
+class WomenAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Women.objects.all()
+    serializer_class = WomenSerializer

@@ -7,7 +7,7 @@ class WomenSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Women
-        fields = ('title', 'content', 'cat')
+        fields = '__all__'
 
 
 
