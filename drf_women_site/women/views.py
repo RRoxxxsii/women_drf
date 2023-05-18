@@ -1,10 +1,9 @@
 from rest_framework import generics
-from rest_framework.authentication import TokenAuthentication
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
-from .models import Women, Category
-from .permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
+from .models import Women
+from .permissions import IsAdminOrReadOnly
 from .serializers import WomenSerializer
 
 
@@ -25,7 +24,6 @@ class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
     permission_classes = (IsAuthenticated, )
-    # authentication_classes = (TokenAuthentication, )
 
 
 class WomenAPIDestroy(generics.RetrieveDestroyAPIView):
